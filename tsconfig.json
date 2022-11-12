@@ -13,9 +13,13 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "noEmit": true,
+        "noEmit": false,
         "jsx": "react-jsx",
-        "baseUrl": "./"
+        "baseUrl": "./",
+        "paths": {
+            "@components": ["src/components/*", "src/components"],
+            "@common/*": ["src/common/*", "src/common"]
+        }
     },
     "include": ["src"]
 }

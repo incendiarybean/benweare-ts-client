@@ -1,6 +1,8 @@
+import "@testing-library/jest-dom";
+
 import React from "react";
-import { Icon } from "src/components/";
 import { act, render, screen } from "@testing-library/react";
+import * as Icon from "../../../shared/icons";
 import Component from "./";
 
 test("Name and image displays", () => {

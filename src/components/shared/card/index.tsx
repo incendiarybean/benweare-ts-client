@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { NasaArticle, NewsCard } from "src/common/types";
-import { sleep } from "src/common/utils";
-import { Error, Loader } from "src/components/";
+import { NasaArticle, NewsCard } from "@common/types";
+import { sleep } from "@common/utils";
+import { Error, Loader } from "@components";
 
 function Component({ Endpoint, SiteName }: NewsCard) {
     const [article, setArticle] = useState<NasaArticle>();

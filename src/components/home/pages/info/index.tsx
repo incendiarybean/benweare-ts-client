@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import profile_image from "src/common/images/profile-sm.webp";
-import { IconProps } from "src/common/types";
+import profile_image from "@common/images/profile-sm.webp";
+import { IconProps } from "@common/types";
 
 function Component({ Icon }: IconProps) {
     const [show, setShow] = useState<boolean>(false);

@@ -1,9 +1,9 @@
 import React, { createRef, useEffect, useState } from "react";
-import { SwipeHandler } from "src/common/hooks/swipeHandler";
-import { NewsArticle, NewsCarousel } from "src/common/types";
-import { sleep } from "src/common/utils";
-import IO from "src/common/utils/socket";
-import { Error, Loader } from "src/components/";
+import { SwipeHandler } from "@common/hooks/swipeHandler";
+import { NewsArticle, NewsCarousel } from "@common/types";
+import { sleep } from "@common/utils";
+import IO from "@common/utils/socket";
+import { Error, Loader } from "@components";
 
 function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
