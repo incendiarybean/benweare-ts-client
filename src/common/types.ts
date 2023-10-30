@@ -8,6 +8,17 @@ export type NewsArticle = {
     date: string;
 };
 
+export type WeatherTimeSeries = {
+    lowTemp: string;
+    maxFeels: string;
+    maxTemp: string;
+    maxWindSpeed: number;
+    weather: string;
+    weatherDescription: string;
+    date: string;
+    id: number;
+};
+
 export type NewsCarousel = {
     Endpoint: string;
     SiteName: string;

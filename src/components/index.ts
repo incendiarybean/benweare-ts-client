@@ -12,4 +12,6 @@ export { default as Loader } from './shared/loader/loader-component';
 export { default as LeftNavigationBar } from './shared/navigation-left/navigation-left-component';
 export { default as RightNavigationBar } from './shared/navigation-right/navigation-right-component';
 export { default as NavigationBar } from './shared/navigation-top/navigation-top-component';
+export { default as NewsList } from './shared/news-list/news-list-component';
 export { default as NewsCarousel } from './shared/news-reel/news-reel-component';
+export { default as WeatherWidget } from './shared/weather-widget/weather-widget-component';
