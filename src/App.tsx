@@ -34,18 +34,18 @@ const App = () => {
 
     return (
         <Router>
-            <div className='text-slate-800 dark:text-white'>
+            <div>
                 <ToastContainer />
-                <div className=''>
+                <div>
                     <NavigationBar {...{ setActivePage, isActivePage }} />
-                    <div className='w-full flex flex-col md:flex-row text-center justify-center min-w-[20rem]'>
+                    <div className='body-wrapper'>
                         <LeftNavigationBar
                             {...{
                                 setActivePage,
                                 isActivePage,
                             }}
                         />
-                        <div className='w-full md:max-w-4xl px-2 sm:px-0 md:h-auto sm:border-l sm:border-r border-slate-300 dark:border-zinc-600/20'>
+                        <div className='w-full md:max-w-4xl px-4 md:px-0 md:h-auto lg:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
                             <Routes />
                         </div>
                         <RightNavigationBar />

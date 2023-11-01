@@ -1,6 +1,6 @@
 const RightNavigationBar = () => {
     return (
-        <div className='hidden lg:flex justify-start md:pl-2 md:mr-4 w-full md:w-1/4 sticky top-0 z-10 md:h-screen  min-w-[12rem]'>
+        <div className='navigation navigation-right'>
             <div className='md:w-48 fixed top-0'>
                 <div className='p-2 md:w-48 text-left h-auto mt-28'>
                     <h1 className='px-2 text-xs uppercase border-b border-slate-500 dark:border-slate-100'>

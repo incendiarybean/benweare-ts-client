@@ -30,24 +30,18 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
     };
 
     return (
-        <div className='ml-2 -my-1 md:hidden'>
+        <div className='mobile-orientation'>
             <button
                 onClick={() => openNavigation()}
                 type='button'
-                className='border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                className='burger-menu-icon'
             >
                 <span className='sr-only'>Navigation</span>
                 <Burger />
             </button>
-            <div
-                hidden={!settingsOpen}
-                className='absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
-            >
-                <div className='popin-settings flex justify-start w-full h-full'>
-                    <div
-                        ref={accountElement}
-                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
-                    >
+            <div hidden={!settingsOpen} className='mobile-menu-wrapper'>
+                <div className='popin-settings mobile-menu-flex'>
+                    <div ref={accountElement} className='mobile-menu'>
                         <div className='space-y-2 mx-2'>
                             <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500'>
                                 <h1 className='uppercase leading-wide font-bold mt-2'>
@@ -55,7 +49,7 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 </h1>
                                 <button
                                     onClick={() => openNavigation(false)}
-                                    className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                                    className='close-menu-icon'
                                 >
                                     <span className='sr-only'>
                                         Close Navigation
@@ -66,51 +60,60 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
 
                             <Link
                                 to='/dashboard'
-                                className={`${
+                                className={`mobile-internal-link ${
                                     isActivePage('/dashboard')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
+                                        ? 'active'
+                                        : 'inactive'
+                                }`}
                                 onClick={() => setActivePage('/dashboard')}
                             >
-                                <div className='p-2 text-zinc-500'>
+                                <div className='mobile-menu-icon'>
                                     <Home />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 text-md'>
-                                    Dashboard
-                                </p>
+                                <p className='mobile-menu-item'>Dashboard</p>
                             </Link>
 
                             <Link
                                 to='/'
-                                className={`${
-                                    isActivePage('/')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
+                                className={`mobile-internal-link ${
+                                    isActivePage('/') ? 'active' : 'inactive'
+                                }`}
                                 onClick={() => setActivePage('/')}
                             >
-                                <div className='p-2 text-zinc-500'>
+                                <div className='mobile-menu-icon'>
                                     <Info />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 text-md'>
-                                    About
-                                </p>
+                                <p className='mobile-menu-item'>About</p>
                             </Link>
 
                             <a
                                 target='_blank'
                                 rel='noreferrer'
-                                href='https://www.npmjs.com/~incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                href='/api/docs'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
+                                <div className='mobile-menu-icon'>
+                                    <Newspaper />
+                                </div>
+
+                                <p className='p-1 mobile-menu-item font-medium'>
+                                    Documentation
+                                </p>
+                            </a>
+
+                            <a
+                                target='_blank'
+                                rel='noreferrer'
+                                href='https://www.npmjs.com/~incendiarybean'
+                                className='mobile-external-link'
+                            >
+                                <div className='mobile-menu-icon'>
                                     <Packages />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
+                                <p className='mobile-menu-item font-medium'>
                                     Packages
                                 </p>
                             </a>
@@ -119,13 +122,13 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://github.com/incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
+                                <div className='mobile-menu-icon'>
                                     <OpenBox />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
+                                <p className='mobile-menu-item font-medium'>
                                     GitHub
                                 </p>
                             </a>
@@ -134,38 +137,24 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://hub.docker.com/u/incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
+                                <div className='mobile-menu-icon'>
                                     <Box />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
+                                <p className='mobile-menu-item font-medium'>
                                     Docker
                                 </p>
                             </a>
-                            <a
-                                target='_blank'
-                                rel='noreferrer'
-                                href='/api/docs'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
-                            >
-                                <div className='p-2 text-zinc-500'>
-                                    <Newspaper />
-                                </div>
-
-                                <p className='p-1 overflow-hidden md:ml-2 text-md font-medium'>
-                                    Documentation
-                                </p>
-                            </a>
                         </div>
-                        <div className='h-16 w-full flex justify-start items-center'>
-                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
+                        <div className='footer'>
+                            <span className='footer-info'>
                                 <strong className='font-semibold'>
                                     benweare.co.uk
                                 </strong>
                             </span>
-                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
+                            <span className='footer-info'>
                                 <strong className='font-semibold'>
                                     v{VITE_APP_VERSION}
                                 </strong>

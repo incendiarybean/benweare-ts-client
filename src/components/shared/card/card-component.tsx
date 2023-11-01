@@ -27,14 +27,14 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
     }, [Endpoint, SiteName]);
 
     return (
-        <div className='px-1 md:px-6 my-3 w-full'>
-            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
+        <div className='component-box'>
+            <div className='outer-container outer-container-border'>
                 {loaded &&
                     article &&
                     (!article.url.includes('youtube.com') ? (
-                        <div className='card border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md'>
+                        <div className='inner-container inner-card-color inner-card-border animate__animated animate__fadeIn animate__faster'>
                             <a
-                                className='hover:bg-blue-400 h-auto w-auto'
+                                className='h-auto w-auto'
                                 href={article.url}
                                 aria-label='Open NASA Image of the Day'
                             >
@@ -48,7 +48,7 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                                 <div>
                                     <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
-                                        <h2 className='-mx-1 flex items-center font-bold uppercase text-md'>
+                                        <h2 className='title article'>
                                             <span>
                                                 <RightCornerArrow />
                                             </span>
@@ -60,28 +60,30 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                                             ).toLocaleDateString('en-UK')}
                                         </span>
                                     </div>
-                                    <p className='text-left text-sm md:text-lg xl:text-xl font-bold leading-normal flex '>
+                                    <p className='text-left text-base md:text-lg xl:text-xl font-bold leading-normal flex '>
                                         {article.title}
                                     </p>
                                 </div>
+
                                 <div className='flex mb-2'>
                                     <button
                                         className='text-blue-500 dark:text-sky-400 hover:text-blue-700 hover:dark:text-sky-600 flex'
                                         onClick={() => setShow(!show)}
                                     >
-                                        <div className='min-w-fit text-xs uppercase flex flex-row items-center'>
-                                            <p>Read the Article</p>{' '}
+                                        <div className='min-w-fit text-base md:text-xs uppercase flex flex-row items-center'>
+                                            <p className='mr-1'>
+                                                Read the Article
+                                            </p>
                                             <ArrowComponent display={show} />
                                         </div>
                                     </button>
                                 </div>
-                                {show && (
-                                    <p className=''>{article.description}</p>
-                                )}
+
+                                {show && <p>{article.description}</p>}
                             </div>
                         </div>
                     ) : (
-                        <div className='animate__animated animate__fadeIn animate__faster w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md'>
+                        <div className='inner-container inner-card animate__animated animate__fadeIn animate__faster'>
                             <div>
                                 <iframe
                                     className='rounded-t w-full h-96 shadow-sm'
@@ -132,9 +134,7 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                                         Watch on Youtube
                                     </a>
                                 </div>
-                                {show && (
-                                    <p className=''>{article.description}</p>
-                                )}
+                                {show && <p>{article.description}</p>}
                             </div>
                         </div>
                     ))}

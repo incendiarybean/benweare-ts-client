@@ -17,34 +17,27 @@ const InfoPage = () => {
     }, []);
 
     return (
-        <div className='select-none items-center flex flex-col w-full overflow-auto md:h-screen pb-20'>
+        <div className='info-page'>
             {loaded && (
                 <div className='animate__animated animate__fadeIn animate__faster px-2 md:px-6 my-3 w-full'>
-                    <div className='flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center'>
-                        <div className='flex justify-center items-center mb-5'>
+                    <div className='about-wrapper'>
+                        <div className='about-image-wrapper'>
                             <img
-                                className='min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-900/60'
+                                className='about-image'
                                 src={profile_image}
                                 alt="Ben Weare, Benjamin Weare's mugshot"
                                 loading='eager'
                             />
                         </div>
-                        <div className=''>
-                            <h1 className='text-center text-2x font-bold leading-normal mb-1'>
-                                Ben Weare
-                            </h1>
-                            <h2 className='text-center text-xs -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase'>
-                                Gloucestershire, England
-                            </h2>
-                            <hr className='mb-2' />
-                            <div className=''>
-                                <p className='text-center font-light leading-relaxed'>
-                                    I'm an aspiring Full-Stack Software
-                                    Developer. I work mostly with NodeJS and
-                                    Python with hosting using AWS
-                                    infrastructure/Heroku.
-                                </p>
-                            </div>
+                        <div className='about-info-box'>
+                            <h1>Ben Weare</h1>
+                            <h2>Gloucestershire, England</h2>
+                            <hr />
+                            <p>
+                                I'm an aspiring Full-Stack Software Developer. I
+                                work mostly with NodeJS and Python with hosting
+                                using AWS infrastructure/Heroku.
+                            </p>
                         </div>
 
                         <button
@@ -54,181 +47,168 @@ const InfoPage = () => {
                             <hr className='z-0 w-full' />
 
                             <div className='z-10 -mt-3 min-w-fit px-2 text-xs uppercase flex flex-row items-center'>
-                                <p>Languages &amp; Experience</p>{' '}
+                                <p className='mr-1'>
+                                    Languages &amp; Experience
+                                </p>
                                 <ArrowComponent display={show} />
                             </div>
                             <hr className='z-0 w-full' />
                         </button>
                     </div>
-                    <div
-                        hidden={!show}
-                        className='snap-proximity snap-y text-left w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-xl overlay h-96 self-center mt-4 mb-20'
-                    >
+                    <div hidden={!show} className='info-page-service-list'>
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600'>
-                                Services/Environments
-                            </p>
-                            <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>
+                            <p className='heading'>Services/Environments</p>
+                            <div className='service-list-wrapper'>
                                 <a
                                     href='https://www.docker.com/'
-                                    className='w-full py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list first-item'
                                 >
                                     Docker
                                 </a>
 
                                 <a
                                     href='https://aws.amazon.com/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     AWS CLI
                                 </a>
 
                                 <a
                                     href='https://www.heroku.com/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     HEROKU CLI
                                 </a>
 
                                 <a
                                     href='https://microk8s.io/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     MicroK8s
                                 </a>
 
                                 <a
                                     href='https://kubernetes.io/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     Kubernetes
                                 </a>
 
                                 <a
                                     href='https://nodejs.org/en/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     NodeJS
                                 </a>
                             </div>
                         </div>
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner'>
-                                Proficient Languages
-                            </p>
-                            <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>
+                            <p className='heading'>Proficient Languages</p>
+                            <div className='service-list-wrapper'>
                                 <a
                                     href='https://www.typescriptlang.org/'
-                                    className='w-full py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list first-item'
                                 >
                                     TYPESCRIPT/JAVASCRIPT
                                 </a>
 
                                 <a
                                     href='https://www.python.org/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     PYTHON
                                 </a>
 
                                 <a
                                     href='https://www.php.net/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     PHP
                                 </a>
                             </div>
                         </div>
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner'>
-                                Minor Language Experience
-                            </p>
-                            <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>
+                            <p className='heading'>Minor Language Experience</p>
+                            <div className='service-list-wrapper'>
                                 <a
                                     href='https://docs.microsoft.com/en-us/cpp/?view=msvc-170'
-                                    className='w-full py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list first-item'
                                 >
                                     C++
                                 </a>
 
                                 <a
                                     href='https://docs.microsoft.com/en-us/dotnet/csharp/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     C#
                                 </a>
 
                                 <a
                                     href='https://www.rust-lang.org/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     Rust
                                 </a>
                             </div>
                         </div>
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner'>
-                                Databases
-                            </p>
-                            <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>
+                            <p className='heading'>Databases</p>
+                            <div className='service-list-wrapper'>
                                 <a
                                     href='https://www.mysql.com/'
-                                    className='w-full py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list first-item'
                                 >
                                     MySQL
                                 </a>
 
                                 <a
                                     href='https://aws.amazon.com/dynamodb/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     DynamoDB
                                 </a>
 
                                 <a
                                     href='https://www.mongodb.com/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     MongoDB
                                 </a>
                             </div>
                         </div>
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner'>
-                                JS Frameworks
-                            </p>
-                            <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>
+                            <p className='heading'>JS Frameworks</p>
+                            <div className='service-list-wrapper'>
                                 <a
                                     href='https://www.npmjs.com/package/express'
-                                    className='w-full py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list first-item'
                                 >
                                     Express
                                 </a>
 
                                 <a
                                     href='https://reactjs.org/'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     React (Functional)
                                 </a>
 
                                 <a
                                     href='https://www.npmjs.com/package/tailwindcss'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     Tailwind
                                 </a>
 
                                 <a
                                     href='https://www.npmjs.com/package/passport'
-                                    className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'
+                                    className='service-list item'
                                 >
                                     Passport
                                 </a>
 
-                                <p className='w-full border-t border-gray-100 dark:border-gray-600 py-2 pl-10 pr-3 block hover:bg-slate-100 dark:hover:bg-zinc-900/70 transition duration-150'>
-                                    Plus more!
-                                </p>
+                                <p className='service-list item'>Plus more!</p>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import { ErrorComponent, Loader } from '@components';
 import { Cloud, Foggy, Info, Rain, Snow, Sun, Thunder } from '@icons';
 import { useEffect, useState } from 'react';
 
-const NewsList = ({ Endpoint, SiteName }: NewsCarousel) => {
+const WeatherWidget = ({ Endpoint, SiteName }: NewsCarousel) => {
     const [timeSeries, setTimeSeries] = useState<
         WeatherTimeSeries | undefined
     >();
@@ -63,30 +63,36 @@ const NewsList = ({ Endpoint, SiteName }: NewsCarousel) => {
     return (
         <div
             id={`${SiteName}-news`}
-            className='px-1 md:pr-6 my-3 w-full md:w-1/4'
+            className='component-box shrink-0 lg:pl-0 lg:w-1/4 min-w-[230px]'
         >
-            <div className='relative text-left flex flex-col w-full items-center justify-center p-4 border border-slate-300 dark:border-zinc-600/40 dark:md:border-zinc-600/20 rounded'>
-                <h2 className='absolute top-0 left-0 px-2 ml-1 -mt-2 flex items-center uppercase text-xs bg-zinc-200 dark:bg-zinc-800'>
-                    {SiteName}
-                </h2>
-                <div className='text-blue-600 dark:text-sky-500 h-64 md:h-36 overflow-auto items-center flex-col justify-around text-center'>
-                    <p>{weatherIcon(timeSeries?.weather)}</p>
-                    <p className='text-xs'>
-                        {new Date(timeSeries?.date ?? '').toLocaleDateString(
-                            'en-UK'
-                        )}
-                    </p>
-                    <p className='text-sm font-bold uppercase'>
-                        {timeSeries?.weatherDescription}
-                    </p>
-                    <div className='flex justify-around items-center'>
-                        <p className='text-sm font-bold uppercase text-blue-500 dark:text-sky-400'>
-                            {timeSeries?.lowTemp}
-                        </p>
-                        |
-                        <p className='text-sm font-bold uppercase text-blue-500 dark:text-sky-400'>
-                            {timeSeries?.maxTemp}
-                        </p>
+            <div className='relative outer-container outer-container-border h-32 lg:h-56'>
+                <h2 className='title list'>{SiteName}</h2>
+                <div className='inner-card-border h-full w-full animate__animated animate__fadeIn animate__faster flex flex-row lg:flex-col justify-between lg:text-center rounded'>
+                    <div className='w-1/3 lg:w-full flex flex-col lg:flex-row justify-around items-center lg:h-1/2 bg-zinc-900/30'>
+                        {weatherIcon(timeSeries?.weather)}
+                    </div>
+                    <div className='inner-card-color rounded lg:h-1/2 py-2 w-2/3 lg:w-full px-3 lg:px-0 flex lg:justify-around items-center'>
+                        <div className='w-full lg:w-1/2 flex flex-row lg:flex-col justify-between items-center gap-2'>
+                            <div className='flex flex-col'>
+                                <p className='text-xs text-blue-600 dark:text-sky-500'>
+                                    {new Date(
+                                        timeSeries?.date ?? ''
+                                    ).toLocaleDateString('en-UK')}
+                                </p>
+                                <p className='text-sm font-bold uppercase'>
+                                    {timeSeries?.weatherDescription}
+                                </p>
+                            </div>
+                            <div className='flex justify-around items-center min-w-[4rem]'>
+                                <p className='text-sm font-bold uppercase'>
+                                    {timeSeries?.lowTemp}
+                                </p>
+                                |
+                                <p className='text-sm font-bold uppercase'>
+                                    {timeSeries?.maxTemp}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {loaded === 'Failed' && (
@@ -98,4 +104,4 @@ const NewsList = ({ Endpoint, SiteName }: NewsCarousel) => {
     );
 };
 
-export default NewsList;
+export default WeatherWidget;

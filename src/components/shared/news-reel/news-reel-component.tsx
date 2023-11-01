@@ -64,11 +64,11 @@ const NewsReel = ({ Endpoint, SiteName }: NewsCarousel) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className='px-1 md:px-6 my-2 w-full'
+            className='component-box'
         >
-            <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
+            <div className='outer-container outer-container-border'>
                 {loaded && articles && (
-                    <div className='animate__animated animate__fadeIn animate__faster w-full border xl:border-none border-slate-300 dark:border-zinc-600/30 rounded shadow-md xl:shadow-none'>
+                    <div className='inner-container inner-container-border xl:shadow-none animate__animated animate__fadeIn animate__faster'>
                         {articles.map((data, index) => (
                             <a
                                 key={`${data.url}-${data.id}`}
@@ -82,14 +82,14 @@ const NewsReel = ({ Endpoint, SiteName }: NewsCarousel) => {
                                 <div className='flex-grow'>
                                     <img
                                         src={data.img}
-                                        className='w-full md:w-full xl:w-96 h-60 xl:h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                        className='w-full md:w-full xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
                                     />
                                 </div>
 
                                 <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between h-36 md:h-40 xl:h-60 overflow-auto'>
                                     <div>
                                         <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
-                                            <h2 className='-mx-1 flex items-center font-bold uppercase text-md'>
+                                            <h2 className='title article'>
                                                 <span>
                                                     <RightCornerArrow />
                                                 </span>
@@ -101,7 +101,7 @@ const NewsReel = ({ Endpoint, SiteName }: NewsCarousel) => {
                                                 ).toLocaleDateString('en-UK')}
                                             </span>
                                         </div>
-                                        <p className='text-left text-md md:text-lg xl:text-xl font-bold leading-normal flex '>
+                                        <p className='text-left text-lg xl:text-xl font-bold leading-normal flex '>
                                             {data.title}
                                         </p>
                                     </div>
