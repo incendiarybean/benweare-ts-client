@@ -25,7 +25,11 @@ export const animateCSS = (
                         runOnEnd();
                     }
 
-                    node.classList.remove(`animate__animated`, animationName);
+                    node.classList.remove(
+                        'animate__animated',
+                        'animate__faster',
+                        animationName
+                    );
                     resolve();
                 },
                 {

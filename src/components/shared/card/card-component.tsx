@@ -28,11 +28,11 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
 
     return (
         <div className='component-box'>
-            <div className='outer-container outer-container-border'>
+            <div className='card outer-container items-center md:p-4'>
                 {loaded &&
                     article &&
                     (!article.url.includes('youtube.com') ? (
-                        <div className='inner-container inner-card-color inner-card-border animate__animated animate__fadeIn animate__faster'>
+                        <div className='wrapper animate__animated animate__fadeIn animate__faster'>
                             <a
                                 className='h-auto w-auto'
                                 href={article.url}
@@ -45,40 +45,27 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                                 />
                             </a>
 
-                            <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
-                                <div>
-                                    <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
-                                        <h2 className='title article'>
-                                            <span>
-                                                <RightCornerArrow />
-                                            </span>
-                                            {SiteName}
-                                        </h2>
-                                        <span className='mr-2'>
-                                            {new Date(
-                                                article.date
-                                            ).toLocaleDateString('en-UK')}
-                                        </span>
-                                    </div>
-                                    <p className='text-left text-base md:text-lg xl:text-xl font-bold leading-normal flex '>
-                                        {article.title}
-                                    </p>
+                            <div className='context'>
+                                <div className='context-title'>
+                                    <h2>
+                                        <RightCornerArrow />
+                                        {SiteName}
+                                    </h2>
+                                    <span>
+                                        {new Date(
+                                            article.date
+                                        ).toLocaleDateString('en-UK')}
+                                    </span>
                                 </div>
-
+                                <h3>{article.title}</h3>
                                 <div className='flex mb-2'>
-                                    <button
-                                        className='text-blue-500 dark:text-sky-400 hover:text-blue-700 hover:dark:text-sky-600 flex'
-                                        onClick={() => setShow(!show)}
-                                    >
-                                        <div className='min-w-fit text-base md:text-xs uppercase flex flex-row items-center'>
-                                            <p className='mr-1'>
-                                                Read the Article
-                                            </p>
+                                    <button onClick={() => setShow(!show)}>
+                                        <div className='min-w-fit text-sm md:text-xs uppercase flex flex-row items-center'>
+                                            Read the Article
                                             <ArrowComponent display={show} />
                                         </div>
                                     </button>
                                 </div>
-
                                 {show && <p>{article.description}</p>}
                             </div>
                         </div>
@@ -100,7 +87,7 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
 
                             <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                                 <div>
-                                    <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
+                                    <div className='flex md:w-full text-xs text-left items-center justify-between highlighted-text'>
                                         <h2 className='-mx-1 flex items-center font-bold uppercase text-md'>
                                             <span>
                                                 <RightCornerArrow />

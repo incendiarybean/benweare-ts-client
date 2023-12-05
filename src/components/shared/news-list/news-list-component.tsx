@@ -28,10 +28,13 @@ const NewsList = ({ Endpoint, SiteName }: NewsCarousel) => {
     }, [Endpoint, SiteName]);
 
     return (
-        <div id={`${SiteName}-news`} className='component-box shrink'>
-            <div className='list-container outer-container-border max-h-56'>
-                <h2 className='title list'>{SiteName}</h2>
-                <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 shadow-inner'>
+        <div
+            id={`${SiteName}-news`}
+            className='news-list-card component-box shrink hidden md:block'
+        >
+            <div className='outer-container max-h-56 relative'>
+                <h2 className='sitename'>{SiteName}</h2>
+                <div className='wrapper animate__animated animate__fadeIn animate__faster'>
                     {loaded && articles && (
                         <div className='my-3'>
                             {articles.map((data) => (
@@ -40,7 +43,7 @@ const NewsList = ({ Endpoint, SiteName }: NewsCarousel) => {
                                     href={data.url}
                                     rel='noreferrer'
                                     target='_blank'
-                                    className='pr-2 md:pr-0 flex w-full rounded-t xl:rounded text-sky-400 hover:text-sky-600 mb-1'
+                                    className='link'
                                 >
                                     <span>
                                         <RightCornerArrow />

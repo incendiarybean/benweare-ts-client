@@ -2,15 +2,15 @@ import 'animate.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './common/utils/socket';
 
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import {
     LeftNavigationBar,
     NavigationBar,
     RightNavigationBar,
     Routes,
 } from '@components';
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
     const [activePage, setActivePage] = useState<string>(
@@ -45,7 +45,7 @@ const App = () => {
                                 isActivePage,
                             }}
                         />
-                        <div className='w-full md:max-w-4xl px-4 md:px-0 md:h-auto lg:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
+                        <div className='w-full md:max-w-4xl px-4 md:px-0 md:h-auto md:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
                             <Routes />
                         </div>
                         <RightNavigationBar />

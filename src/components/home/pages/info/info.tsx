@@ -20,40 +20,42 @@ const InfoPage = () => {
         <div className='info-page'>
             {loaded && (
                 <div className='animate__animated animate__fadeIn animate__faster px-2 md:px-6 my-3 w-full'>
-                    <div className='about-wrapper'>
-                        <div className='about-image-wrapper'>
-                            <img
-                                className='about-image'
-                                src={profile_image}
-                                alt="Ben Weare, Benjamin Weare's mugshot"
-                                loading='eager'
-                            />
-                        </div>
-                        <div className='about-info-box'>
-                            <h1>Ben Weare</h1>
-                            <h2>Gloucestershire, England</h2>
-                            <hr />
-                            <p>
-                                I'm an aspiring Full-Stack Software Developer. I
-                                work mostly with NodeJS and Python with hosting
-                                using AWS infrastructure/Heroku.
-                            </p>
-                        </div>
-
-                        <button
-                            className='group hover:text-blue-600 mt-10 flex'
-                            onClick={() => setShow(!show)}
-                        >
-                            <hr className='z-0 w-full' />
-
-                            <div className='z-10 -mt-3 min-w-fit px-2 text-xs uppercase flex flex-row items-center'>
-                                <p className='mr-1'>
-                                    Languages &amp; Experience
-                                </p>
-                                <ArrowComponent display={show} />
+                    <div className='wrapper'>
+                        <div className='content'>
+                            <div className='image-wrapper'>
+                                <img
+                                    className='image'
+                                    src={profile_image}
+                                    alt="Ben Weare, Benjamin Weare's mugshot"
+                                    loading='eager'
+                                />
                             </div>
-                            <hr className='z-0 w-full' />
-                        </button>
+                            <div className='context'>
+                                <h1>Ben Weare</h1>
+                                <h2>Gloucestershire, England</h2>
+                                <hr />
+                                <p>
+                                    I'm an aspiring Full-Stack Software
+                                    Developer. I work mostly with NodeJS and
+                                    Python with hosting using AWS
+                                    infrastructure/Heroku.
+                                </p>
+                            </div>
+                            <button
+                                className='group hover:text-blue-600 mt-10 flex w-full'
+                                onClick={() => setShow(!show)}
+                            >
+                                <hr className='z-0 w-full' />
+
+                                <div className='z-10 -mt-3 min-w-fit px-2 text-xs uppercase flex flex-row items-center'>
+                                    <p className='mr-1'>
+                                        Languages &amp; Experience
+                                    </p>
+                                    <ArrowComponent display={show} />
+                                </div>
+                                <hr className='z-0 w-full' />
+                            </button>
+                        </div>
                     </div>
                     <div hidden={!show} className='info-page-service-list'>
                         <div className='snap-start'>
